@@ -1,0 +1,70 @@
+#include<stdio.h>
+#include<math.h>
+#define f(x) 1/(1+pow(x,2))
+int main()
+{
+	int i,ch;
+	float up,lo,subi,in,s; 
+	printf("Enter the upper limit : ");
+	scanf("%f",&up);
+		printf("Enter the lower limit : ");
+	scanf("%f",&lo);
+		printf("Enter the subinterval : ");
+	scanf("%f",&subi);
+	printf("Press 1 for trapezodial\n");
+	printf("Press 2 for simpsons 1/3 rule\n");
+	printf("Press 3 for simpsons 1/3 rule\n");
+	printf("Enter yur choice : ");
+		scanf("%d",&ch);
+	switch(ch){
+	case 1:
+	s=(up-lo)/subi;
+	in=f(lo)+f(up);
+	for(i=1;i<subi;i++)
+	{
+	
+		in=in+2*f(lo+i*s);
+	}
+	in=in*(s/2);
+	printf("value of integral function is  %.3f",in);
+	break;
+	case 2:
+	s=(up-lo)/subi;
+	in=f(lo)+f(up);
+	for(i=1;i<subi;i++)
+	{
+		if(i%2==0)
+		{
+			in=in+2*f(lo+i*s);
+		}
+		else{
+			in=in+4*f(lo+i*s);
+		}
+	
+	}
+		in=in*(s/3);
+	
+	printf("Integral value of function in 1/3 rule is %.3f : ",in);
+break;
+case 3:
+	s=(up-lo)/subi;
+	in=f(lo)+f(up);
+	for(i=0;i<subi-1;i++)
+	{
+		if(i%3==0)
+		{
+			in=in+2*f(lo+i*s);
+		}
+		else{
+			in=in+3*f(lo+i*s);
+		}
+		
+	}
+	in=in*(s*3/8);
+	printf("Integral value of function in 3/8 rule is %.5f : ",in);
+	break;
+}
+return 0;
+}
+	
+	
