@@ -1,0 +1,28 @@
+#include<stdio.h>
+#define f(x,y) x+y
+int main()
+{
+	int i,j,n;
+	float x,y,xn,yn,h,slope;
+	printf("Enter the value of x[0]");
+	scanf("%f",&x);
+	printf("Enter the value of y[0]");
+	scanf("%f",&y);
+	printf("Enter the value of xn : ");
+	scanf("%f",&xn);
+	scanf("%d",&n);
+	h=(xn-x)/n;
+	printf("x%f\ty%f\tslope%f\tyn\n");
+	for(i=0;i<n;i++)
+	{
+		x=x+h;
+		slope=f(x,y);
+		yn=y+h*slope;
+		y=yn;
+		printf("%f\t%f\t%f\t%f\n",x,y,slope,yn);
+	}
+	printf("\nvalue of y is %0.3f",yn);
+	return 0;
+}
+	
+	
