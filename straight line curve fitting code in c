@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<math.h>
+#include<conio.h>
+int main()
+{
+	int i,n;
+	float X[20],Y[20],sumx2=0,sumy=0,sumxy=0,a,b,A,sumx=0;
+	 printf("Enter number of data: ");
+	 scanf("%d", &n);
+	 printf("Enter data:\n");
+	 for(i=1;i<=n;i++)
+	 {
+		  printf("x[%d] = ", i);
+		  scanf("%f", &X[i]);
+		  printf("y[%d] = ", i);
+		  scanf("%f", &Y[i]);
+	 }
+	 for(i=0;i<n;i++)
+	 {
+	 	sumx=sumx+log(X[i]);
+	 	sumx2=sumx2+log(X[i])*log(X[i]);
+	 	sumy=sumy+log(Y[i]);
+	 	sumxy=sumxy+log(X[i])*log(Y[i]);
+	 }
+	b=(n*sumxy-sumx*sumy)/(n*sumx2-sumx*sumx);
+	A=(sumy-b*sumx)/n;
+	a=exp(A);
+	printf("a=%f and b=%f",a,b);
+	return 0;
+}
